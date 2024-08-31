@@ -22,6 +22,8 @@ else
     echo "$1 exists"
 fi
 
+while IFS=read -r line
+do
 count=$(cat $file | grep $searchword | wc -l)
 echo "$searchword=$count"
-
+done <<<$file
