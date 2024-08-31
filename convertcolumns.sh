@@ -39,7 +39,7 @@ END {
 
 # columns back to rows using awk
 #echo ""
-#echo "Converted back to rows:"
+echo "Converted back to rows:"
 #awk '{
 #    for (i=1; i<=NF; i++) {
 #        if (NR == 1) {
@@ -56,18 +56,33 @@ END {
 #}' $file
 
 
+#awk '{
+#    for (i=1; i<=NF; i++) {
+#        # Split the column into fields using space as delimiter
+#        split($i, row_values, " ")
+#        # Store values in row array based on index
+#        for (j=1; j<=length(row_values); j++) {
+#            row[j] = (NR == 1 ? row_values[j] : row[j] " " row_values[j])
+#        }
+#    }
+#}
+#END {
+#    for (j=1; j<=length(row); j++) {
+#        print row[j]
+#    }
+#}' "$file"
+
+echo "Converted back to rows:"
 awk '{
     for (i=1; i<=NF; i++) {
-        # Split the column into fields using space as delimiter
-        split($i, row_values, " ")
-        # Store values in row array based on index
-        for (j=1; j<=length(row_values); j++) {
-            row[j] = (NR == 1 ? row_values[j] : row[j] " " row_values[j])
+        if (NR == 1) {
+            num_fields = NF  # Record the number of fields in the header row
         }
+        row[i] = (row[i] ? row[i] " " : "") $i  # Concatenate each field into rows
     }
 }
 END {
-    for (j=1; j<=length(row); j++) {
-        print row[j]
+    for (i=1; i<=num_fields; i++) {
+        print row[i]
     }
 }' "$file"
