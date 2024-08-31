@@ -5,6 +5,11 @@ DIRECTORY=$1
 FIND_STRING=$2
 REPLACE_STRING=$3
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+Y="\e[33m"
+
 if [ $# -ne 3 ]; then
     echo "Usage: $0 <directory> <string_to_replace> <new_String>"
     exit 1
@@ -20,6 +25,7 @@ list_files() {
     echo "Files in directory ($DIRECTORY):"
     ls -1 "$DIRECTORY"
     cat $DIRECTORY/*
+    echo -e "$R files before replacement $N"
     echo
 }
 
@@ -34,6 +40,7 @@ find_and_replace() {
     echo "Replacement done."
 }
 
+echo "$G files after replacemet $N"
 # List files before replacement
 list_files
 
