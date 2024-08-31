@@ -31,31 +31,32 @@ list_files() {
 # Function to perform find and replace
 find_and_replace() {
     echo -e " $G Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files...$N "
-    for file in "$DIRECTORY"/*.txt;
-     do
-
-        for $FIND_STRING in $file
-        if [ -f "$file" ]; then
-            if grep -q "$FIND_STRING" "$file"; then
-            sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
-        fi
-        else "not found"
-        exit 1
-            fi
-    done
-    echo "Replacement done."
-}
-
- #         if grep -q "$FIND_STRING" "$file"; then
- #           
- #               # Perform the replacement
- #               sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
- #               found=1
- #           fi
- #       else
- #           echo "File '$file' does not exist."
+ #   for file in "$DIRECTORY"/*.txt;
+ #    do
+#
+ #       for $FIND_STRING in $file
+ #       if [ -f "$file" ]; then
+ #           if grep -q "$FIND_STRING" "$file"; then
+ #           sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
  #       fi
+ #       else "not found"
+ #       exit 1
+ #           fi
  #   done
+ #   echo "Replacement done."
+}
+  for file in "$DIRECTORY"/*.txt; do
+        if [ -f "$file" ]; then
+            # Check if the file contains the find string
+            if grep -q "$FIND_STRING" "$file"; then
+                # Perform the replacement
+                sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
+                found=1
+            fi
+        else
+            echo "File '$file' does not exist."
+        fi
+    done
 
 # List files before replacement
 
