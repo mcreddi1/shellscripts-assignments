@@ -28,16 +28,37 @@ list_files() {
     echo
 }
 
-# Function to perform find and replace
-find_and_replace() {
-    echo -e " $G Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files...$N "
-    for file in "$DIRECTORY"/*.txt; do
-        if [ -f "$file" ]; then
+found=0
+# Loop through each text file in the specified directory
+for file in "$DIRECTORY"/*.txt; do
+    # Check if the file exists and is a regular file
+    if [ -f "$file" ]; then
+        # Check if the file contains the find string
+        if grep -q "$FIND_STRING" "$file"; then
+            # Perform the replacement
             sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
+            found=1
         fi
-    done
-    echo "Replacement done."
-}
+    else
+        echo "Warning: File '$file' does not exist or is not a regular file."
+    fi
+done
+# If no occurrences were found, print an error message and exit with status 1
+if [ $found -eq 0 ]; then
+    echo "Error: String '$FIND_STRING' not found in any files in '$DIRECTORY'."
+    exit 1
+fi
+
+## Function to perform find and replace
+#find_and_replace() {
+#    echo -e " $G Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files...$N "
+#    for file in "$DIRECTORY"/*.txt; do
+#        if [ -f "$file" ]; then
+#            sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
+#        fi
+#    done
+#    echo "Replacement done."
+#}
 
 # List files before replacement
 
