@@ -2,14 +2,16 @@
 
 # Sample input file (rows.txt)
 # Replace this with your actual data file or provide input directly in the script
-cat <<EOF > file.txt
+file=$1
+
+cat <<EOF > $file
 1 2 3
 4 5 6
 7 8 9
 EOF
 
 echo "Original data (rows):"
-cat file.txt
+cat $file
 echo ""
 
 # Convert rows to columns using awk
@@ -27,7 +29,7 @@ END {
     for (i=1; i<=NF; i++) {
         print col[i]
     }
-}' file.txt
+}' $file
 
 # Convert columns back to rows using awk
 echo ""
@@ -45,4 +47,4 @@ END {
     for (i=1; i<=NF; i++) {
         print row[i]
     }
-}' file.txt
+}' $file
