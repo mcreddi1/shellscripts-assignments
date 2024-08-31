@@ -38,19 +38,36 @@ END {
 }' $file
 
 # columns back to rows using awk
-echo ""
-echo "Converted back to rows:"
+#echo ""
+#echo "Converted back to rows:"
+#awk '{
+#    for (i=1; i<=NF; i++) {
+#        if (NR == 1) {
+#            row[i] = $i
+#        } else {
+#            row[i] = row[i] " " $i
+#        }
+#    }
+#}
+#END {
+#    for (i=1; i<=NF; i++) {
+#        print row[i]
+#    }
+#}' $file
+
+
 awk '{
     for (i=1; i<=NF; i++) {
-        if (NR == 1) {
-            row[i] = $i
-        } else {
-            row[i] = row[i] " " $i
+        # Split the column into fields using space as delimiter
+        split($i, row_values, " ")
+        # Store values in row array based on index
+        for (j=1; j<=length(row_values); j++) {
+            row[j] = (NR == 1 ? row_values[j] : row[j] " " row_values[j])
         }
     }
 }
 END {
-    for (i=1; i<=NF; i++) {
-        print row[i]
+    for (j=1; j<=length(row); j++) {
+        print row[j]
     }
-}' $file
+}' "$file"
