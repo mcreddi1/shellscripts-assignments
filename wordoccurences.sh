@@ -22,6 +22,6 @@ else
     echo "$1 exists"
 fi
 
-count=$(cat $1 | grep $2 | wc -|)
+count=$(cat $file | grep $searchword | wc -|)
 echo "$searchword=$count"
 
