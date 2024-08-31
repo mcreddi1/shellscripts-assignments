@@ -39,7 +39,6 @@ find_and_replace() {
     echo "Replacement done."
 }
 
-
 # List files before replacement
 
 list_files 
