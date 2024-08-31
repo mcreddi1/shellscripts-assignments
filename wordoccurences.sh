@@ -30,7 +30,7 @@ fi
 #done <<<$file
 
 
-wk '{ for (i=1; i<=NF; i++) words[$i]++ } END { for (word in words) print word, words[word] }' "$searchword" |
+awk '{ for (i=1; i<=NF; i++) words[$i]++ } END { for (word in words) print word, words[word] }' "$searchword" |
 sort -k2,2nr -k1,1 |
 # Filter out words with count less than or equal to 1
 awk '$2 > 1 { print }'
