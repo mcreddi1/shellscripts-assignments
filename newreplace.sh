@@ -40,9 +40,9 @@ find_and_replace() {
 }
 
 # List files before replacement
-echo -e " $Y files before replacement $N "
-list_files 
 
+list_files 
+echo -e " $Y files before replacement $N "
 
 # Perform find and replace
 find_and_replace
