@@ -25,6 +25,6 @@ fi
 while IFS= read -r line
 do
     echo "searching lines: $file"
-count=$(cat $file | grep $searchword | wc -l)
+count=$(cat $file | grep $searchword | wc -w)
 echo "$searchword=$count"
 done <<<$file
