@@ -4,8 +4,6 @@
 # Replace this with your actual data file or provide input directly in the script
 file=$1
 
-cat $file
-
 echo "Original data (rows):"
 cat $file
 echo ""
