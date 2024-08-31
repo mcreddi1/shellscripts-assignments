@@ -9,7 +9,7 @@ usage (){
 }
 
 if [ $# -lt 2 ]
-
+then
     echo "usage: $usage"
     exit 1
 fi
