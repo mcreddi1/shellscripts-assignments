@@ -23,5 +23,5 @@ else
 fi
 
 count=$(cat $1 | grep $2 | wc -|)
-echo "$2=$count"
+echo "$searchword=$count"
 
