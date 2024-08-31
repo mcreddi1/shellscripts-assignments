@@ -36,13 +36,26 @@ find_and_replace() {
 
         for $FIND_STRING in $file
         if [ -f "$file" ]; then
+            if grep -q "$FIND_STRING" "$file"; then
             sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
         fi
         else "not found"
         exit 1
+            fi
     done
     echo "Replacement done."
 }
+
+ #         if grep -q "$FIND_STRING" "$file"; then
+ #           
+ #               # Perform the replacement
+ #               sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
+ #               found=1
+ #           fi
+ #       else
+ #           echo "File '$file' does not exist."
+ #       fi
+ #   done
 
 # List files before replacement
 
