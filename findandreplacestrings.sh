@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#need to check some errors are there
+
 # Check if two arguments are provided
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <directory> <string_to_replace>"
