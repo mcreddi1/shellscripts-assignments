@@ -3,7 +3,7 @@
 FIle=$1
 searchword=$2
 
-usage (){
+USAGE (){
 
     echo "USAGE: sh scriptname <filename> <search_word> "
 }
