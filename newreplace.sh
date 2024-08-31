@@ -5,6 +5,11 @@ DIRECTORY=$1
 FIND_STRING=$2
 REPLACE_STRING=$3
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+Y="\e[33m"
+
 if [ $# -ne 3 ]; then
     echo "Usage: $0 <directory> <string_to_replace> <new_String>"
     exit 1
@@ -25,7 +30,7 @@ list_files() {
 
 # Function to perform find and replace
 find_and_replace() {
-    echo "Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files..."
+    echo -e " $G Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files...$N "
     for file in "$DIRECTORY"/*.txt; do
         if [ -f "$file" ]; then
             sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
@@ -35,12 +40,14 @@ find_and_replace() {
 }
 
 # List files before replacement
+echo -e " $Y files before replacement $N "
 list_files 
-echo -e "$Y files before replacement $N"
+
 
 # Perform find and replace
 find_and_replace
 
 # List files after replacement
+echo -e " $G files after replacement $N "
 list_files
-echo -e "$G files after replacement $N"
+
