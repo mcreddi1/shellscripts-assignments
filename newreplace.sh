@@ -44,7 +44,7 @@ find_and_replace() {
  #           fi
  #   done
  #   echo "Replacement done."
-
+            found=0
   for file in "$DIRECTORY"/*.txt; do
         if [ -f "$file" ]; then
             # Check if the file contains the find string
