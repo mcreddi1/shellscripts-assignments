@@ -35,7 +35,7 @@ END {
     for (i=1; i<=NF; i++) {
         print col[i]
     }
-}' $file
+}' $Files
 
 
 convert columns back to rows using awk
