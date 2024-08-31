@@ -28,18 +28,18 @@ list_files() {
     echo
 }
 
-if [ ! $FIND_STRING ]
-then
-    echo "String not found"
-    exit 1
-fi
 # Function to perform find and replace
 find_and_replace() {
     echo -e " $G Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files...$N "
-    for file in "$DIRECTORY"/*.txt; do
+    for file in "$DIRECTORY"/*.txt;
+     do
+
+        for $FIND_STRING in $file
         if [ -f "$file" ]; then
             sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
         fi
+        else "not found"
+        exit 1
     done
     echo "Replacement done."
 }
