@@ -9,16 +9,6 @@ USAGE(){
     echo "USAGE: sh <scriptname> <filename>"
 }
 
-#usage(){
-#
-#    echo -e "usage: sh scriptname.sh <source> <destination> <days(optional)>"
-#}
-##check source a d destination are provided
-#
-#if [ $# -lt 2 ]
-#then
-#     usage
-#fi
 
 if [ $# -lt 1 ]
 then
@@ -48,21 +38,20 @@ END {
 }' $file
 
 
-## Convert columns back to rows using awk
-#echo ""
-#echo "Converted back to rows:"
-#awk '{
-#    for (i=1; i<=NF; i++) {
-#        if (NR == 1) {
-#            row[i] = $i
-#        } else {
-#            row[i] = row[i] " " $i
-#        }
-#    }
-#}
-#END {
-#    for (i=1; i<=NF; i++) {
-#        print row[i]
-#    }
-#}' $file
-#
+Convert columns back to rows using awk
+echo ""
+echo "Converted back to rows:"
+awk '{
+    for (i=1; i<=NF; i++) {
+        if (NR == 1) {
+            row[i] = $i
+        } else {
+            row[i] = row[i] " " $i
+        }
+    }
+}
+END {
+    for (i=1; i<=NF; i++) {
+        print row[i]
+    }
+}' $file
