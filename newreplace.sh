@@ -35,10 +35,12 @@ find_and_replace() {
 }
 
 # List files before replacement
-list_files
+list_files 
+echo -e "$Y files before replacement $N"
 
 # Perform find and replace
 find_and_replace
 
 # List files after replacement
 list_files
+echo -e "$G files after replacement $N"
