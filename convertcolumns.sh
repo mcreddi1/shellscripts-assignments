@@ -9,9 +9,20 @@ USAGE(){
     echo "USAGE: sh <scriptname> <filename>"
 }
 
+#usage(){
+#
+#    echo -e "usage: sh scriptname.sh <source> <destination> <days(optional)>"
+#}
+##check source a d destination are provided
+#
+#if [ $# -lt 2 ]
+#then
+#     usage
+#fi
+
 if [ $# -lt 1 ]
 then
-    echo "usage: $USAGE"
+    USAGE
     exit 1
 fi
 
