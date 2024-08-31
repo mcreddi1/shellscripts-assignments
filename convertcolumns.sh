@@ -4,11 +4,7 @@
 # Replace this with your actual data file or provide input directly in the script
 file=$1
 
-cat <<EOF > $file
-1 2 3
-4 5 6
-7 8 9
-EOF
+cat $file
 
 echo "Original data (rows):"
 cat $file
