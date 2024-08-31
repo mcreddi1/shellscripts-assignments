@@ -5,10 +5,21 @@ DIRECTORY=$1
 FIND_STRING=$2
 REPLACE_STRING=$3
 
+if [ $# -ne 3 ]; then
+    echo "Usage: $0 <directory> <string_to_replace> <new_String>"
+    exit 1
+fi
+
+if [ ! -d "$DIRECTORY" ]; then
+    echo "Error: Directory '$DIRECTORY' not found."
+    exit 1
+fi
+
 # Function to list files in a directory
 list_files() {
     echo "Files in directory ($DIRECTORY):"
-    ls -1 "$DIRECTORY"
+    list=[ ls -1 "$DIRECTORY" ]
+    cat $list
     echo
 }
 
