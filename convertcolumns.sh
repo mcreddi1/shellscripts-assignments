@@ -9,7 +9,7 @@ cat <<EOF > file.txt
 EOF
 
 echo "Original data (rows):"
-cat rows.txt
+cat file.txt
 echo ""
 
 # Convert rows to columns using awk
@@ -27,7 +27,7 @@ END {
     for (i=1; i<=NF; i++) {
         print col[i]
     }
-}' rows.txt
+}' file.txt
 
 # Convert columns back to rows using awk
 echo ""
@@ -45,4 +45,4 @@ END {
     for (i=1; i<=NF; i++) {
         print row[i]
     }
-}' rows.txt
+}' file.txt
