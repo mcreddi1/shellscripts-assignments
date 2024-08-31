@@ -38,7 +38,7 @@ END {
 }' $file
 
 
-Convert columns back to rows using awk
+convert columns back to rows using awk
 echo ""
 echo "Converted back to rows:"
 awk '{
