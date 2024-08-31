@@ -34,7 +34,7 @@ find_and_replace() {
     echo "Finding and replacing '$FIND_STRING' with '$REPLACE_STRING' in all text files..."
     for file in "$DIRECTORY"/*.txt; do
         if [ -f "$file" ]; then
-            sed -i "s/$FIND_STRING/$REPLACE_STRING/g" "$file"
+            sed -i -e "s/$FIND_STRING/$R $REPLACE_STRING $N/g" "$file"
         fi
     done
     echo "Replacement done."
