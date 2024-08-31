@@ -18,8 +18,8 @@ fi
 # Function to list files in a directory
 list_files() {
     echo "Files in directory ($DIRECTORY):"
-    list=[ ls -l "$DIRECTORY" ]
-    cat $list
+    ls -1 "$DIRECTORY"
+    cat $DIRECTORY/*
     echo
 }
 
