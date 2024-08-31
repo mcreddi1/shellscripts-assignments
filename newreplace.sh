@@ -24,8 +24,9 @@ fi
 list_files() {
     echo "Files in directory ($DIRECTORY):"
     ls -1 "$DIRECTORY"
-    cat $DIRECTORY/*
     echo -e "$R files before replacement $N"
+    cat $DIRECTORY/*
+    
     echo
 }
 
@@ -40,7 +41,7 @@ find_and_replace() {
     echo "Replacement done."
 }
 
-echo "$G files after replacemet $N"
+echo -e "$G files after replacemet $N"
 # List files before replacement
 list_files
 
