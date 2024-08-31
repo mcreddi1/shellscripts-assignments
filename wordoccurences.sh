@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FIle=$1
+file=$1
 searchword=$2
 
 USAGE (){
@@ -12,3 +12,12 @@ if [ $# -lt 2 ]
 then
     USAGE
 fi
+
+if [ ! -f $file ]
+then 
+    echo "file not exists"
+    exit 1
+else
+    echo "$file exists"
+fi
+
