@@ -31,7 +31,8 @@ if [ ! -d "$destination_dir" ]; then
 fi
 
 # Synchronize directories using rsync
-rsync_options="-av --update --ignore-existing --progress --exclude='.git/'"  # Adjust options as needed
+#rsync_options="-av --update --ignore-existing --progress --exclude='.git/'"  # Adjust options as needed
+rsync -av --update --ignore-existing --progress --exclude='.git/' "$source_dir/" "$destination_dir/"
 
 rsync "$rsync_options" "$source_dir/" "$destination_dir/"
 
