@@ -34,7 +34,7 @@ fi
 #rsync_options="-av --update --ignore-existing --progress --exclude='.git/'"  # Adjust options as needed
 rsync -av --update --ignore-existing --progress --exclude='.git/' "$source_dir/" "$destination_dir/"
 
-sync "$rsync" "$source_dir/" "$destination_dir/"
+#sync "$rsync" "$source_dir/" "$destination_dir/"
 
 # Check rsync exit status
 if [ $? -ne 0 ]; then
