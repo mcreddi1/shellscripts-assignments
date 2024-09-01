@@ -47,6 +47,16 @@ else
     echo "Directories synchronized successfully."
 fi
 
+echo "removing the files from the source directory after the sync happened"
+removefiles=$(find "$source_dir" -type f -exec rm -f {} \;)
+
+if [ $? -ne 0 ]; then
+    echo "removing files from source directory failed."
+else
+    echo "successfully removing files from source directory."
+fi
+
+
 echo "listing files in destination directory"
 cat $destination_dir/*
 
