@@ -31,7 +31,7 @@ if [ ! -d "$destination_dir" ]; then
 fi
 
 echo "listing files in source directory"
-cat $source_dir/*
+ls -l $source_dir/*
 
 # Synchronize directories using rsync
 #rsync_options="-av --update --ignore-existing --progress --exclude='.git/'"  # Adjust options as needed
@@ -58,7 +58,7 @@ fi
 
 
 echo "listing files in destination directory"
-cat $destination_dir/*
+ls -l $destination_dir/*
 
 # Optional: Check for any files that couldn't be copied due to errors
 # This can include locked files or permission issues
