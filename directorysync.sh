@@ -1,18 +1,33 @@
 #!/bin/bash
 
 # Source and destination directories
-source_dir="/path/to/source"
-destination_dir="/path/to/destination"
+source_dir=$1
+destination_dir=$2
+
+usage(){
+
+    echo "usage: sh scriptname <sourcedir> <destinationdir>"
+}
+
+if [ $# -lt 2 ]
+then
+    usage
+    exit 1
+fi
 
 # Check if both directories exist
 if [ ! -d "$source_dir" ]; then
     echo "Error: Source directory '$source_dir' not found."
     exit 1
+    else
+    echo "$source_dir exists...."
 fi
 
 if [ ! -d "$destination_dir" ]; then
     echo "Error: Destination directory '$destination_dir' not found."
     exit 1
+    else
+    echo "$destination_dir exists..."
 fi
 
 # Synchronize directories using rsync
