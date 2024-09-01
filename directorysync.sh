@@ -30,6 +30,9 @@ if [ ! -d "$destination_dir" ]; then
     echo "$destination_dir exists..."
 fi
 
+echo "listing files in source directory"
+cat $source_dir/*
+
 # Synchronize directories using rsync
 #rsync_options="-av --update --ignore-existing --progress --exclude='.git/'"  # Adjust options as needed
 rsync -av --update --ignore-existing --progress --exclude='.git/' "$source_dir/" "$destination_dir/"
@@ -43,6 +46,9 @@ if [ $? -ne 0 ]; then
 else
     echo "Directories synchronized successfully."
 fi
+
+echo "listing files in destination directory"
+cat $destination_dir/*
 
 # Optional: Check for any files that couldn't be copied due to errors
 # This can include locked files or permission issues
