@@ -5,7 +5,7 @@ USERNAME="mcreddi1"
 REPO="devopspractice"
 
 # Replace with your GitHub personal access token
-TOKEN= $1
+TOKEN="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"
 
 # GitHub API endpoint to list repository collaborators
 URL="https://api.github.com/repos/${USERNAME}/${REPO}/collaborators"
