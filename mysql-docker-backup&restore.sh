@@ -5,8 +5,7 @@
 # Author : Chinnapa Reddy Mora
 # Version : v0.0.1
 #
-#Usage : sh aws-resource-list.sh <region> <service_name>
-#Example: sh aws-resource-list.sh us-east-1 IAM
+#Usage : sh mysql-docker-backup&restore.sh 
 #################################################
 
 # Backup
